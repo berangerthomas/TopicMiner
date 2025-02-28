@@ -1,0 +1,17 @@
+name: Sync to Hugging Face Hub
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Push to HF Hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install huggingface_hub
+          python -c "from huggingface_hub import HfApi; HfApi().create_repo('${{ github.repository }}', repo_type='model', private=False)"
+          python -c "from huggingface_hub import HfApi; HfApi().upload_folder(folder_path='.', repo_id='${{ github.repository }}', repo_type='model')"
