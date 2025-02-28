@@ -5,6 +5,8 @@ import tempfile
 import nltk
 
 nltk.download("punkt_tab")
+nltk.download("stopwords")
+nltk.download("wordnet")
 
 import pymupdf4llm
 import streamlit as st
