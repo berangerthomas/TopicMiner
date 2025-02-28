@@ -2,7 +2,7 @@ name: Sync to Hugging Face Space
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # ou master, selon votre branche principale
 
 jobs:
   sync-to-hub:
@@ -15,8 +15,9 @@ jobs:
       - name: Push to HF Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_USERNAME: ${{ secrets.HF_USERNAME }}
+          HF_SPACE_NAME: ${{ secrets.HF_SPACE_NAME }}
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
-          git remote add space https://huggingface.co/spaces/$HF_USERNAME/$HF_SPACE_NAME
           git push --force https://$HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/$HF_USERNAME/$HF_SPACE_NAME main
