@@ -1,4 +1,4 @@
 import streamlit as st
 
-x = st.slider("Select a value")
-st.write(x, "squared is", x * x)
+x = st.slider("Sélectionner une valeur")
+st.write(x, "Son carré est", x * x)
