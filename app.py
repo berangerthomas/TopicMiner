@@ -3,6 +3,9 @@ import re
 import tempfile
 
 import nltk
+
+nltk.download("punkt_tab")
+
 import pymupdf4llm
 import streamlit as st
 from nltk.corpus import stopwords
