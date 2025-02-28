@@ -2,7 +2,7 @@
 title: Topic Miner
 emoji: 📊
 colorFrom: green
-colorTo: teal
+colorTo: indigo
 sdk: streamlit
 sdk_version: 1.42.2
 app_file: app.py
